@@ -4,15 +4,13 @@
   <parameter name="config" value="single.conf.json"/>
   <test thread-count="5" name="SingleTest(failed)" verbose="0">
     <classes>
-      <class name="testcases.BaseTest">
+      <class name="setup.TestRunner">
         <methods>
-          <include name="verifyClickingOnProductRedirectsOnDetailPage"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="verifyIfTheApplicationLaunchSuccessfully"/>
-          <include name="verifyIfTheProductDisplayOnHomePage"/>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
         </methods>
-      </class> <!-- testcases.BaseTest -->
+      </class> <!-- setup.TestRunner -->
     </classes>
   </test> <!-- SingleTest(failed) -->
 </suite> <!-- Failed suite [Single] -->
