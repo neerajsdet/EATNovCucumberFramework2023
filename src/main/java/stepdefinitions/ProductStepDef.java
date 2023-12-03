@@ -6,10 +6,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import pageobjects.HomePage;
 import pageobjects.ProductDetailsPage;
 import utils.BrowserFactory;
+import utils.GenericMethods;
 
 import java.util.Properties;
 
@@ -23,7 +25,6 @@ public class ProductStepDef {
          driver = BrowserFactory.launchGivenBrowser("chrome");
          homePage = new HomePage(driver);
          productDetailsPage = new ProductDetailsPage(driver);
-         driver.get("https://magento.softwaretestingboard.com/");
 
    }
 
@@ -65,6 +66,34 @@ public class ProductStepDef {
     }
 
 
+    @When("I am on shopping website")
+    public void launchWebsite(){
+        driver.get("https://magento.softwaretestingboard.com/");
+        Assert.assertTrue(homePage.verifyIfSearchBarIsAvailable());
+    }
+
+    @When("I select a product from list of product")
+    public void selectProduct(){
+        homePage.clickOnProduct();
+        Assert.assertTrue(productDetailsPage.verifyAddToCartButtonShowsWithProduct());
+    }
+
+    @Then("I select color of same product")
+    public void selectColorOfProduct(){
+       productDetailsPage.clickOnColor();
+    }
+
+    @Then("I select my size in same product")
+    public void selectSizeOfProduct(){
+        productDetailsPage.clickOnSize();
+    }
+
+    @Given("I add product into cart")
+    public void addProductIntoCart(){
+       productDetailsPage.clickOnCartButton();
+       GenericMethods.pauseExecutionFor(3);
+       Assert.assertTrue(productDetailsPage.verifyProductAddedSuccessfully());
+    }
 
     @After
    public void tearDown(){

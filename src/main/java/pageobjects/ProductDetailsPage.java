@@ -20,7 +20,7 @@ public class ProductDetailsPage {
     @FindBy(xpath = "//div[@id='option-label-size-143-item-166']")
     WebElement sizeOfTshirt;
     @FindBy(xpath = "//div[@id='option-label-color-93-item-52']")
-    WebElement sizeForProduct;
+    WebElement colorForProduct;
     @FindBy(xpath = "//span[normalize-space()='Add to Cart']")
     WebElement addToCartButton;
     @FindBy(xpath = "(//div[@class='page messages']//div[contains(.,'You added')])[1]")
@@ -35,8 +35,19 @@ public class ProductDetailsPage {
          addToCartButton.click();
     }
 
+    public void clickOnSize(){
+        sizeOfTshirt.click();
+    }
+
+    public void clickOnColor(){
+        colorForProduct.click();
+    }
 
 
+
+    public boolean verifyProductAddedSuccessfully(){
+        return productAddedSuccessfully.isDisplayed();
+    }
 
 
 }
