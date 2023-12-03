@@ -9,25 +9,25 @@ Feature: Login Functionality
     Then I add product into cart
 
 
-#  Scenario: Successful login
-#    Given I am on the login page
-#    When I enter my valid username 'abc@gmail.com'
-#    When I enter my valid password 'Tester'
-#    And click the login button
-#    Then I should be redirected to the dashboard
-#    And I should see a welcome message
-#
-#  Scenario Outline: Successful login
-#    Given I am on the login page
-#    When I enter my valid username '<username>'
-#    When I enter my valid password '<password>'
-#    And click the login button
-#    Then I should be redirected to the dashboard
-#    And I should see a welcome message
-#    Examples:
-#      |username|password|
-#      |abc@gmai.com  |tester |
-#      |xyz@gmail.com  |tester|
-#      |123@gmail.com  |tester|
+  Scenario: Successful login
+    Given I am on the login page
+    When I enter my valid username 'abc@gmail.com'
+    When I enter my valid password 'Tester'
+    And click the login button
+    Then I should be redirected to the dashboard
+    And I should see a welcome message
+
+  Scenario Outline: Successful login
+    Given I am on the login page
+    When I enter my valid username '<username>'
+    When I enter my valid password '<password>'
+    And click the login button
+    Then I should be redirected to the dashboard
+    And I should see a welcome message
+    Examples:
+      |username|password|
+      |abc@gmai.com  |tester |
+      |xyz@gmail.com  |tester|
+      |123@gmail.com  |tester|
 
 
